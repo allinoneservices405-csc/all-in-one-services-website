@@ -31,6 +31,20 @@ section{padding:62px 0}.head{text-align:center;max-width:720px;margin:0 auto 30p
 @media(max-width:820px){.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:220px 180px 180px}.gallery figure:first-child{grid-row:auto;grid-column:span 2}}
 @media(max-width:560px){.gallery-grid{grid-template-columns:1fr;grid-template-rows:240px 190px 190px 190px 190px}.gallery figure:first-child{grid-column:auto}}
 
+
+.slideshow{position:relative;max-width:900px;margin:0 auto;background:#0b2342;border-radius:18px;overflow:hidden;box-shadow:0 12px 30px #102f5920}
+.slides{position:relative;height:clamp(280px,58vw,560px)}
+.slide{display:none;position:absolute;inset:0;margin:0}
+.slide.active{display:block;animation:slideFade .45s ease}
+.slide img{width:100%;height:100%;object-fit:contain;background:#0b2342;display:block}
+.slide figcaption{position:absolute;left:0;right:0;bottom:0;padding:38px 18px 20px;color:#fff;font-size:18px;font-weight:bold;background:linear-gradient(transparent,#071a31d9)}
+.slide-btn{position:absolute;top:50%;transform:translateY(-50%);border:0;border-radius:50%;width:44px;height:44px;background:#ffffffdf;color:#102f59;font-size:20px;font-weight:bold;cursor:pointer;z-index:2}
+.slide-btn:hover{background:white}.slide-btn.prev{left:14px}.slide-btn.next{right:14px}
+.slide-dots{position:absolute;bottom:8px;right:18px;display:flex;gap:7px;z-index:3}
+.slide-dot{width:9px;height:9px;padding:0;border:0;border-radius:50%;background:#ffffff88;cursor:pointer}.slide-dot.active{background:#fff;transform:scale(1.25)}
+@keyframes slideFade{from{opacity:.55}to{opacity:1}}
+@media(max-width:560px){.slides{height:340px}.slide-btn{width:36px;height:36px;font-size:16px}.slide figcaption{font-size:15px}}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"ALL IN ONE SERVICES","url":"https://allinoneservices.in/","telephone":"+91-9457040506","address":{"@type":"PostalAddress","streetAddress":"Devrishi Enclave, Near E-Rickshaw Stand, Dehrakhas","addressLocality":"Patel Nagar","addressRegion":"Uttarakhand","postalCode":"248001","addressCountry":"IN"}}</script>
 </head>
@@ -42,12 +56,17 @@ section{padding:62px 0}.head{text-align:center;max-width:720px;margin:0 auto 30p
 <div class="strip">📍 Dehrakhas, Patel Nagar, Dehradun 248001 &nbsp; · &nbsp; 🤝 Online service assistance &nbsp; · &nbsp; ☎ 9457040506</div>
 
 <section class="gallery" id="gallery"><div class="wrap"><div class="head"><small>TAKE A LOOK INSIDE</small><h2>Our Office & Services</h2><p>ALL IN ONE SERVICES, Dehrakhas, Patel Nagar, Dehradun 248001 — visit our centre for online and document service assistance.</p></div>
-<div class="gallery-grid">
-<figure><img src="assets/office-front.jpeg" alt="ALL IN ONE SERVICES office front sign in Dehradun" loading="lazy"><figcaption>Our Office Entrance</figcaption></figure>
-<figure><img src="assets/office-interior.jpeg" alt="Inside view of ALL IN ONE SERVICES customer service centre" loading="lazy"><figcaption>Customer Service Area</figcaption></figure>
-<figure><img src="assets/services-board.jpeg" alt="ALL IN ONE SERVICES roadside services display board" loading="lazy"><figcaption>Services Available</figcaption></figure>
-<figure><img src="assets/services-wall.jpeg" alt="Services information displayed inside the office" loading="lazy"><figcaption>Our Service Display</figcaption></figure>
-<figure><img src="assets/office-storefront.jpeg" alt="ALL IN ONE SERVICES storefront in Dehrakhas, Patel Nagar, Dehradun 248001" loading="lazy"><figcaption>Visit Our Centre</figcaption></figure>
+<div class="slideshow" aria-label="Office and services photo slideshow">
+<div class="slides">
+<figure class="slide active"><img src="assets/office-front.jpeg" alt="ALL IN ONE SERVICES office front sign in Dehradun"><figcaption>Our Office Entrance</figcaption></figure>
+<figure class="slide"><img src="assets/office-interior.jpeg" alt="Inside view of ALL IN ONE SERVICES customer service centre"><figcaption>Customer Service Area</figcaption></figure>
+<figure class="slide"><img src="assets/services-board.jpeg" alt="ALL IN ONE SERVICES roadside services display board"><figcaption>Services Available</figcaption></figure>
+<figure class="slide"><img src="assets/services-wall.jpeg" alt="Services information displayed inside the office"><figcaption>Our Service Display</figcaption></figure>
+<figure class="slide"><img src="assets/office-storefront.jpeg" alt="ALL IN ONE SERVICES storefront in Dehrakhas, Patel Nagar, Dehradun"><figcaption>Visit Our Centre</figcaption></figure>
+<figure class="slide"><img src="assets/airtel-payments-bank-poster.png" alt="ALL IN ONE SERVICES Airtel Payments Bank service centre poster"><figcaption>Airtel Payments Bank Services</figcaption></figure>
+</div>
+<button class="slide-btn prev" type="button" aria-label="Previous photo">❮</button><button class="slide-btn next" type="button" aria-label="Next photo">❯</button>
+<div class="slide-dots" aria-label="Choose a photo"></div>
 </div></div></section>
 
 <section id="services"><div class="wrap"><div class="head"><small>ALL SERVICES AVAILABLE AT OUR CENTRE</small><h2>Our Services</h2><p>Hamare centre par neeche di gayi services ke liye application, document aur online process mein assistance milti hai. Visit se pehle service availability confirm karein.</p></div><div class="grid">
@@ -61,7 +80,7 @@ section{padding:62px 0}.head{text-align:center;max-width:720px;margin:0 auto 30p
 <article class="card"><div class="icon">🏢</div><h3>Business, Tax & Other Services</h3><ul><li>Udyam Registration (Udyog Aadhaar / MSME)</li><li>Food Licence</li><li>PF-related Work / Withdrawal Assistance</li><li>ITR (Income Tax Return) Assistance</li><li>All Types of Online Forms</li></ul></article>
 <article class="card"><div class="icon">💬</div><h3>Need Help With Any Other Service?</h3><p>Call or WhatsApp us to confirm whether the service is available and which documents may be required.</p><p><a class="btn" href="https://wa.me/919457040506" target="_blank" rel="noopener">Ask on WhatsApp</a></p></article>
 </div></div></section>
-<section id="airtel-bank" class="gallery"><div class="wrap"><div class="head"><small>AIRTEL PAYMENTS BANK SERVICE CENTRE</small><h2>Airtel Payments Bank Services</h2><p>Account opening, mobile number update, passbook and other available banking services — subject to bank rules, eligibility and service availability.</p></div><div style="max-width:900px;margin:auto;text-align:center"><img src="assets/airtel-payments-bank-poster.png" alt="ALL IN ONE SERVICES Airtel Payments Bank service centre poster" loading="lazy" style="width:100%;height:auto;display:block;border-radius:16px;box-shadow:0 12px 30px #102f5920"><p style="margin-top:18px"><a class="btn" href="tel:+919457040506">Call 9457040506</a> <a class="btn secondary" href="https://wa.me/919457040506" target="_blank" rel="noopener">WhatsApp Us</a></p></div></div></section>
+<section id="airtel-bank" class="gallery"><div class="wrap"><div class="head"><small>AIRTEL PAYMENTS BANK SERVICE CENTRE</small><h2>Airtel Payments Bank Services</h2><p>Account opening, mobile number update, passbook and other available banking services — subject to bank rules, eligibility and service availability.</p></div><div style="text-align:center"><p>हमारे फोटो स्लाइड शो में Airtel Payments Bank का पोस्टर भी देखें।</p><a class="btn" href="tel:+919457040506">Call 9457040506</a> <a class="btn secondary" href="https://wa.me/919457040506" target="_blank" rel="noopener">WhatsApp Us</a></div></div></section>
 
 <section class="about" id="about"><div class="wrap about-grid"><div><small style="color:#1768b5;font-weight:bold">ABOUT OUR CENTRE</small><h2>Your nearby digital service assistance centre</h2><p class="muted">ALL IN ONE SERVICES is a local Digital Seva and online service assistance centre in Dehrakhas, Patel Nagar, Dehradun 248001. We help customers understand application steps, prepare documents and access available online services.</p><p class="muted">For services requiring government approval, eligibility checks, biometrics or official portal access, final decisions and processing remain with the concerned authority.</p><a class="btn" href="tel:+919457040506">Talk to us</a></div><div class="panel"><h2>Why contact us?</h2><ul class="ticks"><li>Convenient location in Dehrakhas, Patel Nagar, Dehradun 248001</li><li>Multiple document and online service categories</li><li>Direct phone and WhatsApp contact</li><li>Guidance about documents and application steps</li><li>Confirm availability before visiting</li></ul></div></div></section>
 <section id="visit"><div class="wrap"><div class="head"><small>FIND US</small><h2>Visit ALL IN ONE SERVICES</h2><p>Near the E-Rickshaw Stand in Dehrakhas, Patel Nagar, Dehradun 248001.</p></div><div class="contact-grid"><div class="panel"><h2>Contact Details</h2><p><b>Office Address</b><br>Devrishi Enclave, Near E-Rickshaw Stand, Dehrakhas, Patel Nagar, Dehradun, Uttarakhand – 248001</p><p><b>Phone</b><br><a href="tel:+919457040506">9457040506</a></p><p><b>WhatsApp</b><br><a href="https://wa.me/919457040506" target="_blank" rel="noopener">Message our office</a></p><a class="btn" href="https://www.google.com/maps/search/?api=1&query=ALL%20IN%20ONE%20SERVICES%2C%20Devrishi%20Enclave%2C%20Dehrakhas%2C%20Patel%20Nagar%2C%20Dehradun" target="_blank" rel="noopener">Open Google Maps</a></div><div class="panel"><h2>Our Location</h2><iframe class="map" title="Map of Dehrakhas, Patel Nagar, Dehradun 248001" loading="lazy" src="https://www.google.com/maps?q=Devrishi%20Enclave%2C%20Dehrakhas%2C%20Patel%20Nagar%2C%20Dehradun%20248001&output=embed"></iframe></div></div></div></section>
@@ -70,5 +89,12 @@ section{padding:62px 0}.head{text-align:center;max-width:720px;margin:0 auto 30p
 </main>
 <footer><div class="wrap foot"><div><b>ALL IN ONE SERVICES</b><br>Digital Seva & Online Service Centre<br>Dehrakhas, Patel Nagar, Dehradun 248001 – 248001</div><div>Phone: <a href="tel:+919457040506">9457040506</a><br>© <span id="year"></span> ALL IN ONE SERVICES</div></div></footer>
 <a class="wa" href="https://wa.me/919457040506?text=Namaste%2C%20mujhe%20service%20ki%20jaankari%20chahiye." target="_blank" rel="noopener">☏ WhatsApp</a>
-<script>const m=document.getElementById('menu'),n=document.getElementById('links');m.addEventListener('click',()=>n.classList.toggle('open'));n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>n.classList.remove('open')));document.getElementById('year').textContent=new Date().getFullYear();</script>
+<script>const m=document.getElementById('menu'),n=document.getElementById('links');m.addEventListener('click',()=>n.classList.toggle('open'));n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>n.classList.remove('open')));document.getElementById('year').textContent=new Date().getFullYear();
+const slideItems=[...document.querySelectorAll('.slide')];let slideIndex=0;let slideTimer;
+const dots=document.querySelector('.slide-dots');
+function showSlide(i){slideIndex=(i+slideItems.length)%slideItems.length;slideItems.forEach((el,j)=>el.classList.toggle('active',j===slideIndex));[...dots.children].forEach((el,j)=>el.classList.toggle('active',j===slideIndex));}
+slideItems.forEach((_,i)=>{const b=document.createElement('button');b.className='slide-dot'+(i===0?' active':'');b.type='button';b.setAttribute('aria-label','Show photo '+(i+1));b.addEventListener('click',()=>{showSlide(i);restartSlides();});dots.appendChild(b);});
+function restartSlides(){clearInterval(slideTimer);slideTimer=setInterval(()=>showSlide(slideIndex+1),4000);}
+document.querySelector('.slide-btn.prev').addEventListener('click',()=>{showSlide(slideIndex-1);restartSlides();});document.querySelector('.slide-btn.next').addEventListener('click',()=>{showSlide(slideIndex+1);restartSlides();});restartSlides();
+</script>
 </body></html>
